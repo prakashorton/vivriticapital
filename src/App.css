@@ -1,0 +1,9 @@
+.site-page-header-ghost-wrapper {
+  background-color: #f5f5f5;
+  padding: 24px;
+}
+
+.navbar-nav li a.active {
+  color: #fff;
+  background-color: #080808 !important;
+}
