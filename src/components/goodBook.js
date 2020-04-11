@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, PageHeader, Input, Rate, Tag, Empty } from "antd";
+import { Table, PageHeader, Input, Rate, Tag, Empty, notification } from "antd";
 import dataSource from "../utils/dummyData";
 
 function GoodBook() {
@@ -9,6 +9,9 @@ function GoodBook() {
 
   useEffect(() => {
     getData();
+    return () => {
+      notification.destroy();
+    };
   }, []);
 
   const columns = [
@@ -44,15 +47,28 @@ function GoodBook() {
     }
   ];
 
+  const renderNotification = (type, message, description) => {
+    notification[type]({
+      message,
+      description
+    });
+  };
+
   const getData = () => {
     // Dummy API Call
     setTimeout(() => {
-      const keyAdded = dataSource.map((da, index) => {
+      const data = dataSource.map((da, index) => {
         da.key = index;
         return da;
       });
-      setCompleteData(keyAdded);
-      setFilteredData(keyAdded);
+      setCompleteData(data);
+      setFilteredData(data);
+
+      renderNotification(
+        "success",
+        "VivritiCapital - Search App",
+        "Search App - Item Loaded Successfully.!"
+      );
     }, 500);
   };
 

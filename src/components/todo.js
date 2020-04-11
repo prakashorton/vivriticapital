@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from "react";
 import todoReducer from "../reducer/todoReducer";
 import { GETALL, ADD, MarkComplete, EDIT, Delete } from "../utils/action";
 import Items from "./items";
-import { PageHeader, Input, Empty } from "antd";
+import { PageHeader, Input, Empty, notification } from "antd";
 
 function Todo() {
   const { Search } = Input;
@@ -11,6 +11,14 @@ function Todo() {
 
   useEffect(() => {
     dispatch({ type: GETALL, payload: {} });
+    renderNotification(
+      "success",
+      "VivritiCapital - Todo App",
+      "Todo App loaded - With previous state.! Through localstorage"
+    );
+    return () => {
+      notification.destroy();
+    };
   }, []);
 
   const onAdditem = value => {
@@ -18,7 +26,25 @@ function Todo() {
       const payload = buildItem(value);
       setValue("");
       dispatch({ type: ADD, payload });
+      renderNotification(
+        "success",
+        "VivritiCapital - Todo App",
+        "Item Added to Tobo Container"
+      );
+    } else {
+      renderNotification(
+        "error",
+        "VivritiCapital - Todo App",
+        "Enter item in todo input to add the todo. Empty Todo is not allowed"
+      );
     }
+  };
+
+  const renderNotification = (type, message, description) => {
+    notification[type]({
+      message,
+      description
+    });
   };
 
   const onAddItemChange = ({ currentTarget }) => {
@@ -27,6 +53,11 @@ function Todo() {
 
   const onMarkTodo = id => {
     dispatch({ type: MarkComplete, payload: { id } });
+    renderNotification(
+      "info",
+      "VivritiCapital - Todo App",
+      "Item marked as complete.! Check in completed items.!"
+    );
   };
 
   const buildItem = title => {
@@ -40,10 +71,20 @@ function Todo() {
 
   const onEditTodo = payload => {
     dispatch({ type: EDIT, payload });
+    renderNotification(
+      "success",
+      "VivritiCapital - Todo App",
+      "Todo Item updated successfully.!"
+    );
   };
 
   const onDelete = id => {
     dispatch({ type: Delete, payload: { id } });
+    renderNotification(
+      "success",
+      "VivritiCapital - Todo App",
+      "Todo item delete successfully.!"
+    );
   };
 
   return (

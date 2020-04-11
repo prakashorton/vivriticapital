@@ -2,6 +2,7 @@ import React from "react";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { mount } from "enzyme";
+import toJson from "enzyme-to-json";
 import GoodBook from "../components/goodBook";
 
 configure({ adapter: new Adapter() });
@@ -14,7 +15,7 @@ describe("<Todo />", () => {
   });
 
   it("render - snapshot check", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it("render", () => {

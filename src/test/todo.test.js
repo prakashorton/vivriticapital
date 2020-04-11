@@ -2,6 +2,7 @@ import React from "react";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { mount } from "enzyme";
+import toJson from "enzyme-to-json";
 import Todo from "../components/todo";
 
 configure({ adapter: new Adapter() });
@@ -14,7 +15,7 @@ describe("<Todo />", () => {
   });
 
   it("renders correctly - snapshot", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it("renders <Todo /> components", () => {

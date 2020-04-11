@@ -42,7 +42,7 @@ function Items({ data, onChange, onEditTodo, onDelete }) {
                 onChange={onChangeInputOnEditMode}
               />
             ) : (
-              <p>
+              <p className="itemTitle">
                 {item.completed ? <strike>{item.title}</strike> : item.title}
               </p>
             )}
@@ -51,6 +51,7 @@ function Items({ data, onChange, onEditTodo, onDelete }) {
             {!item.completed &&
               (editModeInfo.isEditmode && editModeInfo.id === item.id ? (
                 <Button
+                  className={"saveBtn_" + item.id}
                   onClick={() => {
                     onEditOrSave(item.id, false);
                   }}
@@ -59,6 +60,7 @@ function Items({ data, onChange, onEditTodo, onDelete }) {
                 </Button>
               ) : (
                 <Button
+                  className={"editBtn_" + item.id}
                   onClick={() => {
                     onEditOrSave(item.id, true);
                   }}
@@ -67,6 +69,7 @@ function Items({ data, onChange, onEditTodo, onDelete }) {
                 </Button>
               ))}
             <Button
+              className={"deleteBtn_" + item.id}
               onClick={() => {
                 onDelete(item.id);
               }}

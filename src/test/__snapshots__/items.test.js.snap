@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Items /> renders correctly - snapshot 1`] = `
+<Items
+  data={
+    Array [
+      Object {
+        "completed": false,
+        "id": 1,
+        "title": "helloworld1",
+      },
+    ]
+  }
+  onChange={[MockFunction]}
+  onDelete={[MockFunction]}
+  onEditTodo={[MockFunction]}
+>
+  <List
+    bordered={true}
+    dataSource={
+      Array [
+        Object {
+          "completed": false,
+          "id": 1,
+          "title": "helloworld1",
+        },
+      ]
+    }
+    loading={false}
+    pagination={false}
+    renderItem={[Function]}
+    size="large"
+    split={true}
+  >
+    <div
+      className="ant-list ant-list-lg ant-list-split ant-list-bordered"
+    >
+      <Spin
+        size="default"
+        spinning={false}
+        wrapperClassName=""
+      >
+        <div
+          className="ant-spin-nested-loading"
+        >
+          <div
+            className="ant-spin-container"
+            key="container"
+          >
+            <ul
+              className="ant-list-items"
+            >
+              <Item
+                key="list-item-0"
+              >
+                <li
+                  className="ant-list-item"
+                >
+                  <div
+                    className="pull-left"
+                  >
+                    <Checkbox
+                      checked={false}
+                      disabled={false}
+                      indeterminate={false}
+                      onChange={[Function]}
+                    >
+                      <label
+                        className="ant-checkbox-wrapper"
+                      >
+                        <Checkbox
+                          checked={false}
+                          className=""
+                          defaultChecked={false}
+                          disabled={false}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          prefixCls="ant-checkbox"
+                          style={Object {}}
+                          type="checkbox"
+                        >
+                          <span
+                            className="ant-checkbox"
+                            style={Object {}}
+                          >
+                            <input
+                              checked={false}
+                              className="ant-checkbox-input"
+                              disabled={false}
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="ant-checkbox-inner"
+                            />
+                          </span>
+                        </Checkbox>
+                      </label>
+                    </Checkbox>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "width": "75%",
+                      }
+                    }
+                  >
+                    <p
+                      className="itemTitle"
+                    >
+                      helloworld1
+                    </p>
+                  </div>
+                  <div
+                    className="pull-right"
+                  >
+                    <Button
+                      block={false}
+                      className="editBtn_1"
+                      ghost={false}
+                      htmlType="button"
+                      loading={false}
+                      onClick={[Function]}
+                    >
+                      <Wave>
+                        <button
+                          className="ant-btn editBtn_1"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <span
+                            key=".0"
+                          >
+                            Edit
+                          </span>
+                        </button>
+                      </Wave>
+                    </Button>
+                    <Button
+                      block={false}
+                      className="deleteBtn_1"
+                      danger={true}
+                      ghost={false}
+                      htmlType="button"
+                      loading={false}
+                      onClick={[Function]}
+                      type="primary"
+                    >
+                      <Wave>
+                        <button
+                          className="ant-btn deleteBtn_1 ant-btn-primary ant-btn-dangerous"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <span
+                            key=".0"
+                          >
+                            Delete
+                          </span>
+                        </button>
+                      </Wave>
+                    </Button>
+                  </div>
+                </li>
+              </Item>
+            </ul>
+          </div>
+        </div>
+      </Spin>
+    </div>
+  </List>
+</Items>
+`;
